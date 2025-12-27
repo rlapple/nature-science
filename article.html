@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>文章详情 - Nature & Science 月报</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  </head>
+  <body>
+    <header class="article-header">
+      <a href="index.html" class="back-link">← 返回首页</a>
+      <div>
+        <p id="meta" class="meta"></p>
+        <h1 id="title">加载中...</h1>
+        <p id="summary" class="subtitle"></p>
+      </div>
+      <div class="actions">
+        <a id="pdf" class="button" href="#" target="_blank" rel="noreferrer">下载 PDF</a>
+      </div>
+    </header>
+
+    <main>
+      <article id="content" class="markdown"></article>
+    </main>
+
+    <script type="module" src="article.js"></script>
+  </body>
+</html>

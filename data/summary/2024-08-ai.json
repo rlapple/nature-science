@@ -1,0 +1,10 @@
+{
+  "slug": "2024-08-ai",
+  "title": "模型对齐中的奖励建模新进展",
+  "journal": "Nature Machine Intelligence",
+  "subject": "人工智能",
+  "date": "2024-08-12",
+  "authors": ["Lin Chen", "Yiming Zhang"],
+  "summary": "提出一种跨任务奖励建模框架，显著提升对齐泛化能力。",
+  "pdf": "https://example.com/papers/2024-08-ai.pdf"
+}
