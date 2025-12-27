@@ -1,0 +1,1 @@
+"""Render summaries into Markdown."""
