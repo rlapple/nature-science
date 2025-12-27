@@ -1,0 +1,30 @@
+name: Run Paper Pipeline
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+
+      - name: Run pipeline
+        run: python pipeline/run.py
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-pdfs
+          path: public/pdfs/*.pdf
