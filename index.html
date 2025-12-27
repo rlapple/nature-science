@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nature Science 月报</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Nature • Science Monthly</p>
+        <h1>Nature &amp; Science 月报</h1>
+        <p class="subtitle">
+          按期刊与学科整理最新研究亮点，支持快速浏览与详情阅读。
+        </p>
+      </div>
+      <div class="hero-card">
+        <h2>使用说明</h2>
+        <ol>
+          <li>运行 <code>npm run build:data</code> 生成 JSON 数据。</li>
+          <li>点击文章卡片进入详情页阅读 Markdown 内容。</li>
+          <li>通过下载按钮获取对应 PDF。</li>
+        </ol>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header">
+          <h2>最新文章</h2>
+          <p>按时间排序的最近更新。</p>
+        </div>
+        <div id="latest" class="card-grid"></div>
+      </section>
+
+      <section class="split">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>按期刊</h2>
+          </div>
+          <div id="by-journal" class="list"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>按学科</h2>
+          </div>
+          <div id="by-subject" class="list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>数据来源：data/summary 与 data/md，自动生成 JSON 供前端读取。</p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "nature-science-monthly",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:data": "node scripts/build-data.mjs"
+  }
+}
