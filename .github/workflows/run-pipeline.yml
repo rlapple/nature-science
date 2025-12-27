@@ -1,0 +1,22 @@
+name: Run Pipeline
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run pipeline
+        run: ./run_pipeline --output public/
+
+      - name: Upload public artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-site
+          path: public/

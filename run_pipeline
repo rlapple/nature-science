@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+output_dir="public"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --output)
+      output_dir="$2"
+      shift 2
+      ;;
+    *)
+      echo "Unknown argument: $1" >&2
+      exit 1
+      ;;
+  esac
+done
+
+mkdir -p "$output_dir"
+
+cat <<'HTML' > "$output_dir/index.html"
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nature Science 月报</title>
+  </head>
+  <body>
+    <h1>Nature Science 月报</h1>
+    <p>自动生成时间：<span id="generated-at"></span></p>
+    <script>
+      document.getElementById("generated-at").textContent = new Date().toLocaleString();
+    </script>
+  </body>
+</html>
+HTML
+
+echo "Pipeline output generated in $output_dir"
