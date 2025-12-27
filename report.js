@@ -95,9 +95,48 @@ const renderListBySubject = (items) => {
     .join("");
 };
 
+const renderBriefs = (briefs) => {
+  const container = document.getElementById("report-briefs");
+  if (!briefs.length) {
+    container.innerHTML = `<p class="meta">暂无简要信息。</p>`;
+    return;
+  }
+
+  container.innerHTML = briefs
+    .map(
+      (brief) => `
+        <article class="brief-card">
+          <pre class="brief-text">${brief.formatted}</pre>
+          <a class="brief-link" href="${createArticleLink(brief)}">查看详情</a>
+        </article>
+      `
+    )
+    .join("");
+};
+
+const bindMonthPicker = (month) => {
+  const input = document.getElementById("month-input");
+  const button = document.getElementById("month-submit");
+  if (!input || !button) return;
+
+  input.value = month;
+
+  const updateMonth = () => {
+    const selected = input.value;
+    if (!selected) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set("month", selected);
+    window.location.href = url.toString();
+  };
+
+  button.addEventListener("click", updateMonth);
+  input.addEventListener("change", updateMonth);
+};
+
 const load = async () => {
   const params = new URLSearchParams(window.location.search);
   const month = params.get("month") || new Date().toISOString().slice(0, 7);
+  bindMonthPicker(month);
 
   const response = await fetch(`data/generated/report-${month}.json`);
   if (!response.ok) {
@@ -118,6 +157,8 @@ const load = async () => {
   renderChart("chart-journal", report.byJournal);
   renderChart("chart-subject", report.bySubject);
   renderListBySubject(report.items);
+  renderBriefs(report.briefs || []);
+  bindMonthPicker(month);
 };
 
 load().catch((error) => {
