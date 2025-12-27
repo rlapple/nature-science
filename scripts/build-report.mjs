@@ -5,6 +5,8 @@ const rootDir = process.cwd();
 const summaryDir = path.join(rootDir, "data", "summary");
 const outputDir = path.join(rootDir, "data", "generated");
 
+const getCurrentMonth = () => new Date().toISOString().slice(0, 7);
+
 const parseArgs = () => {
   const args = process.argv.slice(2);
   let month = null;
@@ -22,10 +24,9 @@ const parseArgs = () => {
   }
 
   if (!month) {
-    throw new Error("请使用 --month YYYY-MM 指定需要生成的月份。");
-  }
-
-  if (!/^\d{4}-\d{2}$/.test(month)) {
+    month = getCurrentMonth();
+    console.log(`未指定月份，默认生成 ${month} 的报告。`);
+  } else if (!/^\d{4}-\d{2}$/.test(month)) {
     throw new Error(`月份格式不正确：${month}，请使用 YYYY-MM。`);
   }
 
@@ -56,6 +57,17 @@ const mapToSortedArray = (map) =>
     .map(([name, count]) => ({ name, count }))
     .sort((a, b) => b.count - a.count);
 
+const formatBrief = (item, index) => {
+  const meta = `${item.journal || "未知期刊"} · ${item.subject || "未分类"}`;
+  const lines = [
+    `${index + 1}. ${item.title}`,
+    meta,
+    item.summary || "暂无摘要。",
+    `[论文详细信息] ${item.pdf || "暂无链接"}`
+  ];
+  return lines.join("\n");
+};
+
 const build = async () => {
   const { month } = parseArgs();
   await ensureDir(outputDir);
@@ -79,6 +91,16 @@ const build = async () => {
     byJournal: mapToSortedArray(countBy(sorted, "journal")),
     bySubject: mapToSortedArray(countBy(sorted, "subject")),
     items: sorted,
+    briefs: sorted.map((item, index) => ({
+      slug: item.slug,
+      title: item.title,
+      formatted: formatBrief(item, index),
+      journal: item.journal,
+      subject: item.subject,
+      date: item.date,
+      summary: item.summary,
+      pdf: item.pdf
+    })),
     generatedAt: new Date().toISOString()
   };
 

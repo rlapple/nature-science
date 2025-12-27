@@ -49,5 +49,27 @@
       "pdf": "https://example.com/papers/2024-08-bio.pdf"
     }
   ],
-  "generatedAt": "2025-12-27T07:51:54.058Z"
+  "briefs": [
+    {
+      "slug": "2024-08-ai",
+      "title": "模型对齐中的奖励建模新进展",
+      "formatted": "1. 模型对齐中的奖励建模新进展\nNature Machine Intelligence · 人工智能\n提出一种跨任务奖励建模框架，显著提升对齐泛化能力。\n[论文详细信息] https://example.com/papers/2024-08-ai.pdf",
+      "journal": "Nature Machine Intelligence",
+      "subject": "人工智能",
+      "date": "2024-08-12",
+      "summary": "提出一种跨任务奖励建模框架，显著提升对齐泛化能力。",
+      "pdf": "https://example.com/papers/2024-08-ai.pdf"
+    },
+    {
+      "slug": "2024-08-bio",
+      "title": "单细胞多组学揭示免疫记忆新机制",
+      "formatted": "2. 单细胞多组学揭示免疫记忆新机制\nNature · 生物学\n整合转录组与表观组数据，解析免疫记忆的关键调控回路。\n[论文详细信息] https://example.com/papers/2024-08-bio.pdf",
+      "journal": "Nature",
+      "subject": "生物学",
+      "date": "2024-08-05",
+      "summary": "整合转录组与表观组数据，解析免疫记忆的关键调控回路。",
+      "pdf": "https://example.com/papers/2024-08-bio.pdf"
+    }
+  ],
+  "generatedAt": "2025-12-27T08:20:39.236Z"
 }

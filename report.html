@@ -20,7 +20,13 @@
         <ol>
           <li>运行 <code>node scripts/build-report.mjs --month YYYY-MM</code>。</li>
           <li>访问 <code>report.html?month=YYYY-MM</code> 查看图表。</li>
+          <li>使用下方选择器切换月份。</li>
         </ol>
+        <div class="month-picker">
+          <label for="month-input">选择月份</label>
+          <input id="month-input" type="month" />
+          <button id="month-submit" class="button" type="button">加载</button>
+        </div>
       </div>
     </header>
 
@@ -57,6 +63,14 @@
           <p>可点击跳转到详情页。</p>
         </div>
         <div id="report-list" class="list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>文章简要信息</h2>
+          <p>按参考格式输出，便于直接复制使用。</p>
+        </div>
+        <div id="report-briefs" class="brief-grid"></div>
       </section>
     </main>
 
