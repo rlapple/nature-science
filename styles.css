@@ -36,6 +36,10 @@ footer {
   box-shadow: 0 12px 32px rgba(21, 24, 56, 0.08);
 }
 
+.hero.compact {
+  padding-bottom: 24px;
+}
+
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -134,6 +138,62 @@ h1 {
   color: #4954d0;
 }
 
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.stat-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: #f7f9ff;
+  border: 1px solid #e4e9fb;
+}
+
+.stat-card h3 {
+  margin: 6px 0 0;
+  font-size: 1.4rem;
+}
+
+.chart {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 40px;
+  align-items: center;
+  gap: 12px;
+}
+
+.chart-label {
+  font-size: 0.95rem;
+  color: #2a2f55;
+}
+
+.chart-bar {
+  height: 10px;
+  background: #edf0fb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.chart-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4954d0, #7c6dff);
+  border-radius: 999px;
+}
+
+.chart-value {
+  font-weight: 600;
+  text-align: right;
+  color: #2a2f55;
+}
+
 .split {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -208,5 +268,14 @@ footer {
   .panel-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .chart-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .chart-value {
+    text-align: left;
   }
 }

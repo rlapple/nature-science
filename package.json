@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build:data": "node scripts/build-data.mjs"
+    "build:data": "node scripts/build-data.mjs",
+    "build:report": "node scripts/build-report.mjs"
   }
 }

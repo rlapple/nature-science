@@ -1,0 +1,53 @@
+{
+  "month": "2024-08",
+  "total": 2,
+  "byJournal": [
+    {
+      "name": "Nature Machine Intelligence",
+      "count": 1
+    },
+    {
+      "name": "Nature",
+      "count": 1
+    }
+  ],
+  "bySubject": [
+    {
+      "name": "人工智能",
+      "count": 1
+    },
+    {
+      "name": "生物学",
+      "count": 1
+    }
+  ],
+  "items": [
+    {
+      "slug": "2024-08-ai",
+      "title": "模型对齐中的奖励建模新进展",
+      "journal": "Nature Machine Intelligence",
+      "subject": "人工智能",
+      "date": "2024-08-12",
+      "authors": [
+        "Lin Chen",
+        "Yiming Zhang"
+      ],
+      "summary": "提出一种跨任务奖励建模框架，显著提升对齐泛化能力。",
+      "pdf": "https://example.com/papers/2024-08-ai.pdf"
+    },
+    {
+      "slug": "2024-08-bio",
+      "title": "单细胞多组学揭示免疫记忆新机制",
+      "journal": "Nature",
+      "subject": "生物学",
+      "date": "2024-08-05",
+      "authors": [
+        "Wei Liu",
+        "Amina Patel"
+      ],
+      "summary": "整合转录组与表观组数据，解析免疫记忆的关键调控回路。",
+      "pdf": "https://example.com/papers/2024-08-bio.pdf"
+    }
+  ],
+  "generatedAt": "2025-12-27T07:51:54.058Z"
+}

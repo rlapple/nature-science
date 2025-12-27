@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nature Science 月度报告</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="hero compact">
+      <div>
+        <p class="eyebrow">Nature • Science Monthly</p>
+        <h1>月度可视化报告</h1>
+        <p class="subtitle">
+          按期刊与学科统计当月文章数量，并汇总重点文章清单。
+        </p>
+      </div>
+      <div class="hero-card">
+        <h2>使用说明</h2>
+        <ol>
+          <li>运行 <code>node scripts/build-report.mjs --month YYYY-MM</code>。</li>
+          <li>访问 <code>report.html?month=YYYY-MM</code> 查看图表。</li>
+        </ol>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel">
+        <div class="panel-header">
+          <h2 id="report-title">报告概览</h2>
+          <p id="report-subtitle">加载中…</p>
+        </div>
+        <div class="stat-grid" id="report-stats"></div>
+      </section>
+
+      <section class="split">
+        <div class="panel">
+          <div class="panel-header">
+            <h2>按期刊统计</h2>
+            <p>当月各期刊文章数量。</p>
+          </div>
+          <div id="chart-journal" class="chart"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <h2>按学科统计</h2>
+            <p>当月各学科文章数量。</p>
+          </div>
+          <div id="chart-subject" class="chart"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>文章清单</h2>
+          <p>可点击跳转到详情页。</p>
+        </div>
+        <div id="report-list" class="list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>报告数据来源：data/summary，经脚本生成可视化 JSON。</p>
+    </footer>
+
+    <script type="module" src="report.js"></script>
+  </body>
+</html>
